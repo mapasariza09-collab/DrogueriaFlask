@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}Registro{% endblock %}
+{% block content %}
+<div class="login-wrap">
+    <div class="card login-card">
+        <h1>Registro</h1>
+        <form method="post">
+            <label>Nombre</label>
+            <input type="text" name="nombre" required autocomplete="name">
+
+            <label>Correo electrónico</label>
+            <input type="email" name="correo" required autocomplete="email">
+
+            <label>Contraseña</label>
+            <input type="password" name="contrasena" required autocomplete="new-password">
+
+            <button type="submit" class="btn">Registrarme</button>
+        </form>
+        <p style="margin-top:16px;"><a href="{{ url_for('login') }}">Volver al login</a></p>
+    </div>
+</div>
+{% endblock %}

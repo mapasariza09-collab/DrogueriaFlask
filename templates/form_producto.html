@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}{% if producto %}Editar producto{% else %}Nuevo producto{% endif %}{% endblock %}
+{% block content %}
+<div class="form-page">
+    <div class="card form-card">
+        <h1>{% if producto %}Editar producto{% else %}Nuevo producto{% endif %}</h1>
+        <form method="post" class="compact-form">
+            <label>Nombre</label>
+            <input type="text" name="nombre" value="{{ producto['nombre'] if producto else '' }}" required>
+
+            <label>Categoría</label>
+            <input type="text" name="categoria" value="{{ producto['categoria'] if producto else '' }}" required>
+
+            <label>Precio</label>
+            <input type="number" step="0.01" name="precio" value="{{ producto['precio'] if producto else '' }}" required>
+
+            <label>Stock</label>
+            <input type="number" name="stock" value="{{ producto['stock'] if producto else 0 }}">
+
+            <div class="form-actions">
+                <button type="submit" class="btn">Guardar</button>
+                <a class="btn ghost" href="{{ url_for('listar_productos') }}">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
